@@ -1,9 +1,10 @@
 import "./App.css";
+import Main from "./components/Main";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "lightblue", height: "100vh" }}>
-      <h1>Welcome to my React App</h1>
+    <div>
+      <Main />
     </div>
   );
 }
