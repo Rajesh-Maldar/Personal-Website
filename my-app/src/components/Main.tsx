@@ -7,6 +7,7 @@ import {
   XOutlined,
 } from "@ant-design/icons";
 import { Space } from "antd";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -16,6 +17,17 @@ const Main = () => {
         <video src={videoBg} autoPlay loop muted />
         <div className="content">
           <h1>Greetings, and Welcome Aboard</h1>
+          <nav
+            className="navbar-left"
+            style={{
+              alignSelf: "auto",
+              marginTop: "20px",
+              paddingLeft: "-60%",
+            }}
+          >
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+          </nav>
           <div className="social-media-icons-white footer">
             <Space>
               <a href="https://www.facebook.com/rajesh.maldar">

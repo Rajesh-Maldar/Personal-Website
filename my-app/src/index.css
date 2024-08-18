@@ -50,3 +50,19 @@ video{
     width: 8%;
    
 }
+
+.content .navbar-left {
+
+  top: 20px; /* Adjust this to move the nav vertically */
+  left: 20px; /* Move the navbar to the left */
+  display: flex;
+  gap: 15px; /* Space between links */
+  align-items: first baseline;
+}
+
+/* Optional: styling for the links */
+.content .navbar-left a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
