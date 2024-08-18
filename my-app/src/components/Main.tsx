@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import videoBg from "../assets/videoBg.mp4";
 import {
   FacebookFilled,
@@ -10,6 +10,17 @@ import { Space } from "antd";
 import { Link } from "react-router-dom";
 
 const Main = () => {
+  async function getAdvice() {
+    const response = await fetch("https://api.adviceslip.com/advice");
+    const data = await response.json();
+    setAdvice(data.slip.advice);
+    setCount((c) => c + 1);
+  }
+  useEffect(() => {
+    getAdvice();
+  }, []); // Empty dependency array means this effect will only run once when the component mounts
+  const [advice, setAdvice] = useState(null);
+  const [count, setCount] = useState(0);
   return (
     <>
       <div className="main">
@@ -17,7 +28,7 @@ const Main = () => {
         <video src={videoBg} autoPlay loop muted />
         <div className="content">
           <h1>Greetings, and Welcome Aboard</h1>
-          <nav
+          {/* <nav
             className="navbar-left"
             style={{
               alignSelf: "auto",
@@ -27,7 +38,27 @@ const Main = () => {
           >
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
-          </nav>
+          </nav> */}
+          <a style={{ margin: "16px", color: "white" }} href="/">
+            Home
+          </a>
+          <a style={{ margin: "16px", color: "white" }} href="/about">
+            About
+          </a>
+
+          <h1 style={{ margin: "16px" }}>{advice}</h1>
+          <button
+            style={{
+              margin: "16px",
+            }}
+            onClick={getAdvice}
+          >
+            Get advice
+          </button>
+          <p>
+            You have read <strong>{count}</strong> advices
+          </p>
+
           <div className="social-media-icons-white footer">
             <Space>
               <a href="https://www.facebook.com/rajesh.maldar">
