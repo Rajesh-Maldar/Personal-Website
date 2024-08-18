@@ -25,7 +25,7 @@ const Main = () => {
     <>
       <div className="main">
         <div className="overlay"></div>
-        <video src={videoBg} autoPlay loop muted />
+        <video src={videoBg} autoPlay loop muted playsInline />
         <div className="content">
           <h1>Greetings, and Welcome Aboard</h1>
           {/* <nav
